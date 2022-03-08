@@ -58,4 +58,33 @@ public class Curso implements Serializable {
     public void setFechaFin(Date fechaFin) {
         this.fechaFin = fechaFin;
     }
+
+    public String getValuesToSave(){
+        String  code        = String.format("%-30.30s\t",this.codigo),
+                description = String.format("%-30.30s\t",this.denominacion),
+                hourCount   = String.format("%-30d\t",this.numHoras),
+                initDate    = String.format("%-30.30s\t", printDate(this.fechaInicio)),
+                endDate     = String.format("%-30.30s\n",printDate(this.fechaFin)),
+
+                values      = code + description + hourCount + initDate + endDate;
+
+        return values;
+    }
+
+    @Override
+    public String toString() {
+        return  "codigo='" + codigo + '\t' +
+                "denominacion='" + denominacion + '\t' +
+                "numHoras=" + numHoras +  '\t' +
+                "fechaInicio=" + printDate(this.fechaInicio) +  '\t' +
+                "fechaFin=" + printDate(this.fechaFin) ;
+    }
+
+    private String printDate(Date date){
+        String day = (date.getDate() < 10) ? "0"+date.getDate() : Integer.toString(date.getDate());
+        String month = (date.getMonth() < 9 ) ? "0"+(date.getMonth()+1) : Integer.toString(date.getMonth()+1);
+        String year = Integer.toString(date.getYear()+1900);
+
+        return year + "-" + month + "-" + day;
+    }
 }
