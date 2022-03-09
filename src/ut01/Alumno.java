@@ -94,7 +94,7 @@ public class Alumno implements Serializable, GetValues {
                 provincia        = String.format("%-30.30s\t",this.vivienda.getProvincia()),
                 fechaNacimiento  = String.format("%-30.30s\t",printDate(this.fechaDeNacimiento)),
 
-                values = dni+nombre+apellido1+apellido2+direccion+codPostal+provincia+telefono+fechaNacimiento;
+                values = dni+nombre+apellido1+apellido2+direccion+codPostal+provincia+telefono+fechaNacimiento+"\n";
 
         return values;
     }

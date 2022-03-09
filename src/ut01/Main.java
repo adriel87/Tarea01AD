@@ -42,7 +42,13 @@ public class Main {
                 if( option == 2 ) alumno = studentHelper.getStudentByDefault();
 
                 if( option == 3 ) {
-                    if(alumno!=null) saveInFile("alumnos", alumno.getValuesToSave(), headerAlumns);
+
+                    if(alumno!=null) {
+                        {
+                            System.out.println("guardando alumno "+ alumno.getNombre());
+                            saveInFile("alumnos", alumno.getValuesToSave(), headerAlumns);
+                        }
+                    }
                     else System.out.println("Primero debe crear un alumno");
                 }
 

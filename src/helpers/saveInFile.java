@@ -9,13 +9,12 @@ public class saveInFile {
         PrintWriter out = null;
 
 
-
         try{
 
             if(file.exists()==false){
                 out = new PrintWriter(new FileWriter(fileName+".dat",true));
                 for(String field: cabecera ){
-                    System.out.println(field);
+
                     String formatValue = String.format("%-30.30s\t",field);
                     out.print(formatValue);
 
