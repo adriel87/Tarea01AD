@@ -1,11 +1,11 @@
-package ut01;
+package helpers;
 
 import java.io.*;
 
 public class saveInFile {
 
     public static void saveInFile(String fileName, String valueToSave, String[] cabecera){
-        File file = new File(fileName);
+        File file = new File(fileName+".dat");
         PrintWriter out = null;
 
 
@@ -22,7 +22,7 @@ public class saveInFile {
                 }
                 out.println();
             }else {
-                out = new PrintWriter(new FileWriter(fileName,true));
+                out = new PrintWriter(new FileWriter(fileName+".dat",true));
             }
             out.print(valueToSave);
 

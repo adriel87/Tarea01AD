@@ -1,9 +1,13 @@
 package ut01;
 
+import ut01.interfaces.GetValues;
+
 import java.io.Serializable;
 import java.util.Date;
 
-public class Alumno implements Serializable {
+import static helpers.datesHelper.printDate;
+
+public class Alumno implements Serializable, GetValues {
 
     private String      dni,
                         nombre,
@@ -23,9 +27,8 @@ public class Alumno implements Serializable {
         this.fechaDeNacimiento = fechaDeNacimiento;
     }
 
-    public String getDni() {
-        return dni;
-    }
+
+    public String getDni() { return dni; }
 
     public void setDni(String dni) {
         this.dni = dni;
@@ -77,5 +80,22 @@ public class Alumno implements Serializable {
 
     public void setFechaDeNacimiento(Date fechaDeNacimiento) {
         this.fechaDeNacimiento = fechaDeNacimiento;
+    }
+
+    @Override
+    public String getValuesToSave() {
+         String dni              = String.format("%-30.30s\t",this.dni),
+                nombre           = String.format("%-30.30s\t",this.nombre),
+                apellido1        = String.format("%-30.30s\t",this.primerApellido),
+                apellido2        = String.format("%-30.30s\t",this.segundoApellido),
+                telefono         = String.format("%-30.30s\t",this.telefono),
+                codPostal        = String.format("%-30.30s\t",this.vivienda.getCodigoPostal()),
+                direccion        = String.format("%-30.30s\t",this.vivienda.getDireccion()),
+                provincia        = String.format("%-30.30s\t",this.vivienda.getProvincia()),
+                fechaNacimiento  = String.format("%-30.30s\t",printDate(this.fechaDeNacimiento)),
+
+                values = dni+nombre+apellido1+apellido2+direccion+codPostal+provincia+telefono+fechaNacimiento;
+
+        return values;
     }
 }

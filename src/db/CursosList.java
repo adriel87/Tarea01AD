@@ -1,4 +1,6 @@
-package ut01;
+package db;
+
+import ut01.Curso;
 
 import java.util.ArrayList;
 import java.util.Date;
